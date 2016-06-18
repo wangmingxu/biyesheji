@@ -1,0 +1,28 @@
+<ion-view   cache-view="false">
+  <div class="bar bar-header bar-calm">
+  <h1 class="title">我的消息
+  </h1>
+  </div>
+  <ion-content class="has-header">
+    <ion-list>
+      <div ng-repeat="x in data" ng-switch="x.type">
+      <a class="item item-avatar" ng-href="#/weibodetail/{{x.post_id}}" ng-if="x.type!='addFriend'">
+        <img ng-src="{{x.headUrl}}" class="avatar_left">
+        <h2>{{x.nickname}}</h2>
+        <p ng-switch-when="at">提到了你</p>
+        <p ng-switch-when="parise"><i class="icon ion-android-favorite-outline"></i></p>
+        <p ng-switch-when="comment">{{x.content}}</p>
+        <p>{{x.date}}</p>
+        <img ng-src="{{x.thumbpic}}" alt="" class="thumb_right"/>
+      </a>
+      <a class="item item-avatar" ng-href="#/friendinfo/{{data.from}}" ng-if="x.type=='addFriend'">
+        <img ng-src="{{x.headUrl}}" class="avatar_left">
+        <h2>{{x.nickname}}</h2>
+        <p>关注了你</p>
+        <p>{{x.date}}</p>
+        <img ng-src="{{x.thumbpic}}" alt="" class="thumb_right"/>
+      </a>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

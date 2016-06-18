@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- ipone设备上禁止数字识自动别为电话号码 -->
+    <meta name="format-detection" content="telephone=no" />
+    <title>Document</title>
+    <!-- <script>
+      var dpr, rem, scale;
+      var docEl = document.documentElement;
+      var fontEl = document.createElement('style');
+      var metaEl = document.querySelector('meta[name="viewport"]');
+
+      dpr = window.devicePixelRatio || 1;
+      rem = docEl.clientWidth * dpr / 10;
+      scale = 1 / dpr;
+
+
+      // 设置viewport，进行缩放，达到高清效果
+      console.log(docEl.clientWidth)
+      metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+      console.log(docEl.clientWidth)
+
+      // 设置data-dpr属性，留作的css hack之用
+      docEl.setAttribute('data-dpr', dpr);
+
+      // 动态写入样式
+      docEl.firstElementChild.appendChild(fontEl);
+      fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+
+      // 给js调用的，某一dpr下rem和px之间的转换函数
+      window.rem2px = function(v) {
+          v = parseFloat(v);
+          return v * rem;
+      };
+      window.px2rem = function(v) {
+          v = parseFloat(v);
+          return v / rem;
+      };
+
+      window.dpr = dpr;
+      window.rem = rem;
+    </script> -->
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.min.css" rel="stylesheet">
+    <link href="css/custom-app.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css" media="screen" title="no title" charset="utf-8">
+    <script src="js/pusher.min.js"></script>
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directive.js"></script>
+    <script src="js/filter.js"></script>
+    <!-- <script src="js/iframeHeight.js" charset="utf-8"></script> -->
+    <!-- <script src="http://172.27.115.2:1234/target/target-script-min.js#anonymous" charset="utf-8"></script> -->
+    <script type="text/javascript" charset="utf-8">
+    // 当PhoneGap加载完毕后调用onDeviceReady回调函数
+    // 此时，该文件已加载完毕但phonegap.js还没有加载完毕。
+    // 当PhoneGap加载完毕并开始和本地设备进行通讯，
+    // 就会触发“deviceready”事件。
+    document.addEventListener("deviceready", onDeviceReady, false);
+    // PhoneGap加载完毕，现在可以安全地调用PhoneGap方法
+    function onDeviceReady() {
+    // 现在可以安全使用PhoneGap API，如后面要讲的backbutton
+    // angular.bootstrap(document,['starter']);      //在接收到deviceready事件之后手动启动应用（相当于手动ng-app）
+    console.log("deviceready");
+    }
+  </script>
+  <script type="text/javascript">
+    window.onmessage=function(e){
+      console.log(e.data);
+    }
+  </script>
+  </head>
+  <body ng-app="starter">
+    <!-- <iframe id="mainFrame" name="mainFrame" scrolling="no" src="http://192.168.155.3/laravelapp/public/index.php/auth/qq" frameborder="0" style="padding: 0px; width: 100%; height: 1980px;"></iframe>
+    <script type="text/javascript">
+      startInit('mainFrame', 560);
+    </script> -->
+    <!-- <iframe id="ifrm" border="0" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" style="display:none"></iframe> -->
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <!-- <ion-nav-bar class="bar-light">
+      <ion-nav-back-button>
+        <i class="ion-arrow-left-c"></i> 后退
+      </ion-nav-back-button>
+    </ion-nav-bar> -->
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+  </body>
+  <!-- <script type="text/javascript" language="javascript">
+    document.getElementById('ifrm').width=window.innerWidth;
+    document.getElementById('ifrm').height=window.innerHeight;
+    document.getElementById('ifrm').style.display="block";
+    document.getElementById('ifrm').src="http://192.168.191.3/laravelapp/public/index.php/auth/qq";
+    document.getElementsByTagName('ion-nav-view')[0].style.display="none";
+  </script> -->
+</html>

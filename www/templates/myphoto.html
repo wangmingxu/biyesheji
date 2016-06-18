@@ -1,0 +1,17 @@
+<ion-view>
+<div class="bar bar-header">
+  <button class="button icon ion-arrow-left-a" ng-click="historyback()"></button>
+     <div class="h1 title">我的相册</div>
+ </div>
+ <div class="content has-header ionic-pseudo">
+
+   <div class="list list-inset">
+     <div class="item">
+        <div class="photo" ng-repeat="x in data">
+          <img ng-src="{{x.photo_url}}" alt="" />
+        </div>
+     </div>
+   </div>
+
+ </div>
+ </ion-view>

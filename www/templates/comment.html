@@ -1,0 +1,11 @@
+<ion-view>
+  <div class="bar bar-header bar-stable">
+  <button class="button icon ion-arrow-left-a" ng-click="historyback()"></button>
+  <h1 class="title">输入评论</h1>
+  <button class="button" ng-click="sendComment()">发送</button>
+</div>
+ <div class="content has-header">
+ <div class="list" style="border-bottom:1px solid gray">
+  <textarea class="inputContent" max-size="1000" id="inputContent" placeholder="输入评论..." ng-model="comment"></textarea>
+  </div>
+ </div>

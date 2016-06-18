@@ -1,0 +1,99 @@
+<ion-view>
+  <div class="bar bar-header bar-calm">
+  <button class="button  button-clear button-positive" style="color:white" ng-click="historyback()">返回</button>
+  <h1 class="title">
+      好友详情
+  </h1>
+  </div>
+  <ion-content class=" has-header">
+    <div class="friendinfo">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+      </div>
+      <div class="col" style="text-align:center">
+        <img ng-src="{{friendInfo.headUrl}}" alt="" width="60" height="60" style="border-radius:50%"/>
+      </div>
+      <div class="col">
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col" style="text-align:center">
+        {{friendInfo.nickname}}
+        <i class="icon ion-male positive" ng-if="friendInfo.sex=='boy'"></i>
+        <i class="icon ion-female assertive" ng-if="friendInfo.sex=='gril'"></i>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col" style="text-align:center">
+          关注({{friendInfo.observe_count}})
+      </div>
+      <div class="col" style="text-align:center">
+          粉丝({{friendInfo.fans_count}})
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+    <p style="font-size:12px;text-align:center;color:gray;width:100%">
+      {{friendInfo.signature}}
+    </p>
+    </div>
+    </div>
+    <div class="item item-divider" style="font-size:14px" ng-cloak>
+      全部微博({{friendInfo.weibo_count}})
+    </div>
+    <div class="list card" ng-repeat="x in friendInfo.postList">
+      <div class="item">
+        <h2>{{friendInfo.nickname}}</h2>
+        <p>{{x.date}}</p>
+      </div>
+
+      <a class="item item-body" ng-href="#/weibodetail/{{x.id}}">
+        <div class="photoList">
+          <div class="photo" ng-repeat="photo in x.photoList">
+              <img ng-src="{{photo}}" alt="" />
+          </div>
+        </div>
+        <p>
+          #{{x.topic}}#{{x.content}}
+        </p>
+      </a>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="parise(x.id)" ng-if="x.is_parise==0">
+          <i class="icon ion-ios-heart-outline dark"></i>
+          赞
+        </a>
+        <a class="tab-item" ng-click="cancel_parise(x.id)" ng-if="x.is_parise!=0">
+          <i class="icon ion-ios-heart assertive"></i>
+          赞
+        </a>
+        <a class="tab-item" href="#/comment/{{x.id}}">
+          <i class="icon ion-ios-chatbubble-outline positive"></i>
+          评论
+        </a>
+        <a class="tab-item" ng-click="favourite(x.id)" ng-if="x.is_collect==0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline dark"></i><!--energized-->
+          收藏
+        </a>
+        <a class="tab-item" ng-click="cancel_favourite(x.id)" ng-if="x.is_collect!=0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline energized"></i><!--energized-->
+          收藏
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

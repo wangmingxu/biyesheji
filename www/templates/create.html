@@ -1,0 +1,61 @@
+<ion-view>
+  <div class="bar bar-header bar-stable">
+  <button class="button icon ion-arrow-left-a" ng-click="historyback()"></button>
+  <h1 class="title">发微博</h1>
+  <button class="button" ng-click="createPost()">发送</button>
+</div>
+ <div class="content has-header">
+ <div class="list">
+  <textarea class="inputContent" max-size="1000" id="inputContent" placeholder="这一刻的想法..." ng-model="content"></textarea>
+  <div class="inputContainer">
+  	<ul class="uploadPicList">
+  		<li class="uploadPicView" ng-repeat="x in photoList">
+  			<input type="file" class="inputFile">
+    		<!-- <span class="glyphicon glyphicon-plus"></span> -->
+    			<span class="uploadimg"><img ng-src="{{x}}" alt=""></span>
+    	</li>
+      <photo-upload ng-model="photoList" photo="photoList"  ng-show='canAdd()'></photo-upload>
+  	</ul>
+  </div>
+  <div class="item item-divider"></div>
+  <a class="item item-icon-left"  ng-click="showPopup()">
+  <i class="icon ion-pound"></i>
+  设置话题
+  <span class="item-note">
+    <!-- 毕业快乐 -->
+    {{topic}}
+  </span>
+  </a>
+  <a class="item item-icon-left" ng-click="modalShow()">
+  <i class="icon ion-at"></i>
+  提醒谁看
+  <span class="item-note">
+    {{atList}}
+  </span>
+  </a>
+  </div>
+  <!-- {{photoList}} -->
+ </div>
+ <script id="templates/modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+      <button class="button button-clear button-primary" ng-click="modal.hide()">取消</button>
+      <h1 class="title">提醒谁看</h1>
+      <button class="button button-clear" ng-click="finish(friendList)">完成</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+      <ul class="list">
+        <ion-checkbox ng-repeat="item in friendList"
+                      ng-model="item.checked"
+                      ng-checked="item.checked">
+          {{ item.nickname }}
+        </ion-checkbox>
+        <!-- <div class="item">
+          <pre ng-bind="friendList | json"></pre>
+        </div> -->
+      </ul>
+      <button class="button button-full button-positive" ng-click="finish(friendList)">完成</button>
+    </ion-content>
+  </ion-modal-view>
+</script>
+</ion-view>

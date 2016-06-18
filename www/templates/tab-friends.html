@@ -1,0 +1,135 @@
+<ion-view   cache-view="false">
+  <!-- <ion-nav-title>
+    我的好友
+  </ion-nav-title> -->
+  <div class="bar bar-header bar-calm">
+    <!-- <a class="button button-icon icon ion-ios-search-strong" href="#/"></a> -->
+  <h1 class="title">我的好友</h1>
+      <a class="button button-icon icon ion-plus" href="#/addFriend"></a>
+  </div>
+    <ion-content class="has-header">
+      <p style="background-color:#f5f5f5;padding-bottom:10px;margin:0px"></p>
+        <ion-list class="rj-list">
+            <ion-item class="rj-item">
+                <div class="rj-contacts-pic rj-orange-bgc">
+                    <i class="ion-person-add"></i>
+                </div>
+                <h2>新的朋友</h2>
+            </ion-item>
+            <ion-item class="rj-item">
+                 <div class="rj-contacts-pic rj-green-bgc">
+                     <i class="ion-person-stalker"></i>
+                 </div>
+                 <h2>我的粉丝</h2>
+             </ion-item>
+             <!-- <ion-item class="rj-item">
+                 <div class="rj-contacts-pic rj-blue-bgc">
+                     <i class="ion-ios-pricetag"></i>
+                 </div>
+                 <h2>标签</h2>
+             </ion-item>
+             <ion-item class="rj-item">
+                  <div class="rj-contacts-pic rj-blue-bgc">
+                      <i class="ion-person-add"></i>
+                  </div>
+                  <h2>公众号</h2>
+             </ion-item> -->
+        </ion-list>
+        <ion-list>
+            <ion-item class="rj-contacts-item" ng-repeat="x in friendList">
+                <div class="rj-contacts-index-bar">{{x.letter|uppercase}}</div>
+                <ion-list class="rj-list">
+                    <ion-item class="rj-item" ng-repeat="y in x.data">
+                        <a ng-href="#/friendinfo/{{y.user_id}}" style="overflow:hidden">
+                        <div class="rj-contacts-pic">
+                            <img ng-src="{{y.headUrl}}">
+                        </div>
+                        <h2>{{y.nickname}}</h2>
+                        </a>
+                    </ion-item>
+                </ion-list>
+            </ion-item>
+            <!-- <ion-item class="rj-contacts-item">
+                <div class="rj-contacts-index-bar">R</div>
+                <ion-list class="rj-list">
+                    <ion-item class="rj-item">
+                        <div class="rj-contacts-pic">
+                            <img src="http://www.runoob.com/try/demo_source/spengler.jpg">
+                        </div>
+                        <h2>Runningman</h2>
+                    </ion-item> -->
+                    <!-- <ion-item class="rj-item">
+                        <div class="rj-contacts-pic">
+                            <img src="img/adam.jpg">
+                        </div>
+                        <h2>李明</h2>
+                    </ion-item>
+                    <ion-item class="rj-item">
+                        <div class="rj-contacts-pic">
+                            <img src="img/adam.jpg">
+                        </div>
+                        <h2>李明</h2>
+                    </ion-item> -->
+                </ion-list>
+            </ion-item>
+            <!-- <ion-item class="rj-contacts-item">
+                <div class="rj-contacts-index-bar">C</div>
+                <ion-list class="rj-list">
+                    <ion-item class="rj-item">
+                        <div class="rj-contacts-pic">
+                            <img src="img/adam.jpg">
+                        </div>
+                        <h2>李明</h2>
+                    </ion-item>
+                    <ion-item class="rj-item">
+                        <div class="rj-contacts-pic">
+                            <img src="img/adam.jpg">
+                        </div>
+                        <h2>李明</h2>
+                    </ion-item>
+                    <ion-item class="rj-item">
+                        <div class="rj-contacts-pic">
+                            <img src="img/adam.jpg">
+                        </div>
+                        <h2>李明</h2>
+                    </ion-item> -->
+                </ion-list>
+            </ion-item>
+        </ion-list>
+        </ion-content>
+        <div class="rj-contacts-right-bar" rj-position-middle on-drag="contacts_right_bar_swipe($event)">
+            <div>&uarr;</div>
+            <div>☆</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+            <div>E</div>
+            <div>F</div>
+            <div>G</div>
+            <div>H</div>
+            <div>I</div>
+            <div>J</div>
+            <div>K</div>
+            <div>L</div>
+            <div>M</div>
+            <div>N</div>
+            <div>O</div>
+            <div>P</div>
+            <div>Q</div>
+            <div>R</div>
+            <div>S</div>
+            <div>T</div>
+            <div>U</div>
+            <div>V</div>
+            <div>W</div>
+            <div>X</div>
+            <div>Y</div>
+            <div>Z</div>
+            <div>#</div>
+        </div>
+        <!-- <div class="rj-contacts-middle-bar">
+            A
+        </div> -->
+
+</ion-view>

@@ -1,0 +1,72 @@
+<ion-view  cache-view="false">
+  <!-- <ion-nav-title>
+    <select class="light-bg" style="border:none">
+      <option selected="">微博广场</option>
+      <option>我关注的</option>
+      <option>最新发布</option>
+    </select>
+  </ion-nav-title> -->
+  <div class="bar bar-header bar-calm">
+  <a class="button button-icon icon ion-ios-search-strong" href="#/searchweibo"></a>
+  <h1 class="title">
+    <select class="calm-bg light" style="border:none;font-size:17px" ng-model="weibo_mode">
+      <option value="square">微博广场</option>
+      <option value="observe">我关注的</option>
+      <option value="new">最新发布</option>
+    </select>
+  </h1>
+  <a class="button button-icon icon ion-compose" href="#/create"></a>
+  </div>
+  <ion-content class="padding has-header">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <div class="list card" ng-repeat="x in postList">
+
+      <div class="item item-avatar">
+        <img ng-src="{{x.headUrl}}">
+        <h2>{{x.nickname}}</h2>
+        <p>{{x.date}}</p>
+      </div>
+
+      <a class="item item-body" ng-href="#/weibodetail/{{x.id}}">
+        <div class="photoList">
+          <div class="photo" ng-repeat="photo in x.photoList">
+              <img ng-src="{{photo}}" alt="" />
+          </div>
+        </div>
+        <p>
+          {{x.topic|topic}}{{x.content}}
+        </p>
+        <!-- <p>
+          <a href="#" class="subdued">1 喜欢</a>
+          <a href="#" class="subdued">5 评论</a>
+        </p> -->
+      </a>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="parise(x.id)" ng-if="x.is_parise==0">
+          <i class="icon ion-ios-heart-outline dark"></i>
+          赞
+        </a>
+        <a class="tab-item" ng-click="cancel_parise(x.id)" ng-if="x.is_parise!=0">
+          <i class="icon ion-ios-heart assertive"></i>
+          赞
+        </a>
+        <a class="tab-item" href="#/comment/{{x.id}}">
+          <i class="icon ion-ios-chatbubble-outline positive"></i>
+          评论
+        </a>
+        <a class="tab-item" ng-click="favourite(x.id)" ng-if="x.is_collect==0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline dark"></i><!--energized-->
+          收藏
+        </a>
+        <a class="tab-item" ng-click="cancel_favourite(x.id)" ng-if="x.is_collect!=0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline energized"></i><!--energized-->
+          收藏
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

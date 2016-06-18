@@ -1,0 +1,77 @@
+<ion-view>
+  <!-- <ion-nav-title>
+    <select class="light-bg" style="border:none">
+      <option selected="">微博广场</option>
+      <option>我关注的</option>
+      <option>最新发布</option>
+    </select>
+  </ion-nav-title> -->
+  <div class="bar bar-header bar-calm">
+  <!-- <a class="button button-icon icon ion-ios-search-strong" href="#/searchweibo"></a> -->
+  <h1 class="title">
+      我赞过的
+  </h1>
+  <!-- <a class="button button-icon icon ion-compose" href="#/create"></a> -->
+  </div>
+  <ion-content class="padding has-header">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <div class="list card" ng-repeat="x in postList">
+
+      <div class="item item-avatar">
+        <img ng-src="{{x.headUrl}}">
+        <h2>{{x.nickname}}</h2>
+        <p>{{x.date}}</p>
+      </div>
+
+      <div class="item item-body">
+        <!-- <div class="row">
+          <div class="col" ng-repeat="photo in x.photoList" ng-show="$index<4"><img class="" ng-src="{{photo}}"></div>
+        </div>
+        <div class="row">
+          <div class="col" ng-repeat="photo in x.photoList" ng-show="$index>3&&$index<7"><img class="" ng-src="{{photo}}"></div>
+        </div>
+        <div class="row">
+          <div class="col" ng-repeat="photo in x.photoList" ng-show="$index>6&&$index<10"><img class="" ng-src="{{photo}}"></div>
+        </div> -->
+        <div class="photoList">
+          <div class="photo" ng-repeat="photo in x.photoList">
+              <img ng-src="{{photo}}" alt="" />
+          </div>
+        </div>
+        <p>
+          #{{x.topic}}#{{x.content}}
+        </p>
+        <!-- <p>
+          <a href="#" class="subdued">1 喜欢</a>
+          <a href="#" class="subdued">5 评论</a>
+        </p> -->
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="parise(x.id)" ng-if="x.is_parise==0">
+          <i class="icon ion-ios-heart-outline dark"></i>
+          赞
+        </a>
+        <a class="tab-item" ng-click="cancel_parise(x.id)" ng-if="x.is_parise!=0">
+          <i class="icon ion-ios-heart assertive"></i>
+          赞
+        </a>
+        <a class="tab-item" href="#/comment/{{x.id}}">
+          <i class="icon ion-ios-chatbubble-outline positive"></i>
+          评论
+        </a>
+        <a class="tab-item" ng-click="favourite(x.id)" ng-if="x.is_collect==0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline dark"></i><!--energized-->
+          收藏
+        </a>
+        <a class="tab-item" ng-click="cancel_favourite(x.id)" ng-if="x.is_collect!=0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline energized"></i><!--energized-->
+          收藏
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view>
+<div class="bar bar-header bar-stable">
+  <!-- <button class="button icon ion-arrow-left-a" ng-click="historyback()"></button> -->
+  <div class="h1 title">个人信息</div>
+  <button class="button" ng-click="updateinfo()">完成</button>
+</div>
+
+<div class="content has-header">
+
+  <ul class="list">
+
+    <li class="item  item-thumbnail-right" style="line-height:70px">
+     <!-- <img src="http://7xssdf.com1.z0.glb.clouddn.com/c60a4e7a42bb0dc7a631463f429648a5.jpg"/> -->
+     <img src="{{headUrl}}" id="avatar"/>
+     <!-- <input type="file" name="name" value="" class="avatar"> -->
+     <avatar-upload avatar="headUrl"></avatar-upload>
+      头像
+    </li>
+    <li class="item" ng-click='setNickname()'>
+      <span>昵称</span>
+      <div class="positive" style="float:right">
+        {{nickname}}
+      </div>
+    </li>
+    <li class="item">
+      <span>性别</span>
+      <div class="positive" style="float:right">
+        <select ng-model="sex" ng-cloak>
+          <option ng-selected="sex=='boy'" value="boy">男</option>
+          <option ng-selected="sex=='girl'" value="girl">女</option>
+        </select>
+      </div>
+    </li>
+    <li class="item" ng-click='setArea()'>
+      <span>地区</span>
+      <div class="positive" style="float:right">
+        {{area}}
+      </div>
+    </li>
+    <li class="item" ng-click='setSignature()'>
+      <span>个性签名</span>
+      <div class="positive" style="float:right;max-width:100px;text-overflow: ellipsis;white-space: nowrap;overflow:hidden; ">
+        {{signature}}
+      </div>
+    </li>
+  </ul>
+  <!-- {{headUrl}} -->
+</div>

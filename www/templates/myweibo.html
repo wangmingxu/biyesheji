@@ -1,0 +1,62 @@
+<ion-view  cache-view="false">
+
+  <div class="bar bar-header bar-calm">
+  <button class="button  button-clear button-positive" style="color:white" ng-click="historyback()">返回</button>
+  <h1 class="title">
+      我的微博
+  </h1>
+  </div>
+  <ion-content class="padding has-header">
+    <!-- <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher> -->
+    <div class="list card" ng-repeat="x in postList">
+
+      <div class="item item-avatar item-icon-right">
+        <img ng-src="{{x.headUrl}}">
+        <h2>{{x.nickname}}</h2>
+        <p>{{x.date}}</p>
+        <i class="icon ion-trash-a assertive" ng-click="delWeibo(x.id)"></i>
+      </div>
+
+      <div class="item item-body">
+        <div class="photoList">
+          <div class="photo" ng-repeat="photo in x.photoList">
+              <img ng-src="{{photo}}" alt="" />
+          </div>
+        </div>
+        <p>
+          #{{x.topic}}#{{x.content}}
+        </p>
+        <!-- <p>
+          <a href="#" class="subdued">1 喜欢</a>
+          <a href="#" class="subdued">5 评论</a>
+        </p> -->
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="parise(x.id)" ng-if="x.is_parise==0">
+          <i class="icon ion-ios-heart-outline dark"></i>
+          赞
+        </a>
+        <a class="tab-item" ng-click="cancel_parise(x.id)" ng-if="x.is_parise!=0">
+          <i class="icon ion-ios-heart assertive"></i>
+          赞
+        </a>
+        <a class="tab-item" href="#/comment/{{x.id}}">
+          <i class="icon ion-ios-chatbubble-outline positive"></i>
+          评论
+        </a>
+        <a class="tab-item" ng-click="favourite(x.id)" ng-if="x.is_collect==0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline dark"></i><!--energized-->
+          收藏
+        </a>
+        <a class="tab-item" ng-click="cancel_favourite(x.id)" ng-if="x.is_collect!=0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline energized"></i><!--energized-->
+          收藏
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

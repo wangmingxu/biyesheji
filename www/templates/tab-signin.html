@@ -1,0 +1,33 @@
+<div class="tabs-striped  tabs-background-positive tabs-color-light">
+    <div class="tabs">
+      <a class="tab-item active" href="#/login"><i class="icon ion-unlocked"></i> Login</a>
+      <a class="tab-item" href="#/signup"> <i class="icon ion-person"></i> Sing Up </a>
+    </div>
+ </div>
+
+<ion-view view-title="Sign In" class="loginBg" hide-nav-bar="true" >
+<!-- <ion-nav-title><img src="img/logo.png" width="40"></ion-nav-title> -->
+
+  <ion-content class="padding">
+
+  <div class="row responsive-sm padding remvoeBP">
+	  <div class="col">
+			<div class="app-logo"><img src="img/logo.jpg" width="128" height="128"></div>
+
+			<div class="list list-inset removePM">
+			  <label class="item item-input"><input type="text" ng-model="user.name" placeholder="Username" > </label>
+			  <label class="item item-input"><input type="password" ng-model="user.password" placeholder="Password" > </label>
+			</div>
+
+			<div class="loginButton"><button class="button ion-unlocked button-block button-balanced" ng-click="login(user);" > Login </button>  </div>
+	  </div>
+  </div>
+
+	<div class="row  padding removePM">
+	  <div class="col"> <a class=" button-royal button button-block"><i class="icon ion-social-github dark"></i></a> </div>
+	  <div class="col"> <a class="button-calm button button-block"><img src="img/qqlogin.png" alt="" style="vertical-align: middle;" winth="21" height="21"/></a> </div>
+    <div class="col"> <a class="button-energized button button-block""><img src="http://www.sinaimg.cn/blog/developer/wiki/LOGO_24x24.png" alt="" style="vertical-align: middle;" winth="21" height="21"/></a> </div>
+  </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,83 @@
+<ion-view   cache-view="false">
+  <div class="bar bar-header bar-calm">
+  <button class="button  button-clear button-positive" style="color:white" ng-click="historyback()">返回</button>
+  <h1 class="title">
+      微博详情
+  </h1>
+  </div>
+  <ion-content class="padding has-header">
+    <!-- <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher> -->
+    <div class="list card">
+      <div class="item item-avatar">
+        <img ng-src="{{post.authorinfo.headUrl}}">
+        <h2>{{post.authorinfo.nickname}}</h2>
+        <p>{{post.date}}</p>
+      </div>
+      <div class="item item-body">
+        <div class="photoList">
+          <div class="photo" ng-repeat="photo in post.photoList">
+              <img ng-src="{{photo}}" alt="" />
+          </div>
+        </div>
+        <p>
+          #{{post.topic}}#{{post.content}}
+        </p>
+        <!-- <p>
+          <a href="#" class="subdued">1 喜欢</a>
+          <a href="#" class="subdued">5 评论</a>
+        </p> -->
+      </div>
+      <div class="item" ng-show="post.pariseList.length>0">
+        <i class="icon ion-android-favorite-outline assertive" style="vertical-align: initial;font-size:23px"></i>
+        <img ng-src="{{x.headUrl}}" alt="" ng-repeat="x in post.pariseList" class="pariseList"/>
+      </div>
+      <div class="item" ng-show="post.pariseList.length==0">
+        <p>暂时还没有人点赞~</p>
+      </div>
+      <div class="item">
+      <p style="border-left:4px solid #387ef5">
+        &nbsp全部评论
+      </p>
+      <div class="list">
+        <p ng-show="post.commentList.length==0">
+          暂时还没有评论~
+        </p>
+        <div class="item item-avatar" href="#" ng-repeat="y in post.commentList" style="padding-left:60px">
+          <img ng-src="{{y.headUrl}}" style="width:28px;height:28px">
+          <h2>{{y.nickname}}
+            <span class="item-note">
+              {{$index+1}}楼
+            </span>
+          </h2>
+          <p>{{y.comment}}</p>
+        </div>
+
+      </div>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="parise(post.id)" ng-if="post.is_parise==0">
+          <i class="icon ion-ios-heart-outline dark"></i>
+          赞
+        </a>
+        <a class="tab-item" ng-click="cancel_parise(post.id)" ng-if="post.is_parise!=0">
+          <i class="icon ion-ios-heart assertive"></i>
+          赞
+        </a>
+        <a class="tab-item" href="#/comment/{{post.id}}">
+          <i class="icon ion-ios-chatbubble-outline positive"></i>
+          评论
+        </a>
+        <a class="tab-item" ng-click="favourite(post.id)" ng-if="post.is_collect==0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline dark"></i><!--energized-->
+          收藏
+        </a>
+        <a class="tab-item" ng-click="cancel_favourite(post.id)" ng-if="post.is_collect!=0">
+          <!-- <i class="icon ion-share energized"></i> -->
+          <i class="icon ion-android-star-outline energized"></i><!--energized-->
+          收藏
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view  cache-view="false">
+  <div class="bar bar-header bar-calm">
+  <h1 class="title">我的消息
+  </h1>
+  </div>
+  <ion-content class="has-header">
+    <ion-list>
+    <p style="background-color:#f5f5f5;padding-bottom:10px;margin:0px"></p>
+    <a class="item item-avatar item-icon-right" href="#/userinfo" nav-transition="android">
+      <img ng-src={{headUrl}}>
+      <h2>{{nickname}}</h2>
+      <p>{{signature}}</p>
+      <i class="icon ion-chevron-right icon-accessory"></i>
+    </a>
+    <a class="item" style="padding:0px">
+          <div class="row" style="padding:0px">
+            <div class="col" style="padding:0px"><button style="margin:0px;line-height:1.5" class="button button-full button-light">{{weibo_count}}</br>微博</button></div>
+            <div class="col" style="padding:0px"><button style="margin:0px;line-height:1.5" class="button button-full button-light">{{observe_count}}</br>关注</button></div>
+            <div class="col" style="padding:0px"><button style="margin:0px;line-height:1.5" class="button button-full button-light">{{fans_count}}</br>粉丝</button></div>
+          </div>
+    </a>
+    <div class="item item-divider">
+      <!--颜色间隔-->
+    </div>
+    <a class="item item-icon-left" href="#/myweibo" nav-transition="android">
+      <i class="icon ion-ionic calm"></i>
+      我的微博
+    </a>
+    <a class="item item-icon-left " href="#/myphoto" nav-transition="android">
+      <i class="icon ion-images positive"></i>
+      我的相册
+    </a>
+    <a class="item item-icon-left" href="#/myparise" nav-transition="android">
+      <i class="icon ion-heart assertive"></i>
+      我的赞
+    </a>
+    <a class="item item-icon-left" href="#/collection" nav-transition="android">
+      <i class="icon ion-cube balanced"></i>
+      我的收藏
+    </a>
+    <div class="item item-divider">
+      <!--颜色间隔-->
+    </div>
+    <p style="text-align:center;border-bottom:1px solid #ddd;background-color:#ef473a">
+      <button class="button button-small button-light assertive" ng-click="Logout()" style="background-color:#ef473a;color:white">退出登陆</button>
+    </p>
+    </ion-list>  </ion-content>
+</ion-view>
